@@ -1,25 +1,53 @@
 body {
-    background-color: rgb(235, 233, 233);
+    background-color: dimgray;
+    font-family: 'Lato', sans-serif;
 }
-#keyboard {
-    display: block;
-    border: 2px solid black;
-    padding: 5px;
-    width: 800px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#keyboard::after {
-    content: "";
-    display: block;
-    clear: both;
+
+.wrapper {
+    margin: 0 auto;
+    width: 700px;
 }
-.key {
-    width: 50px;
-    height: 50px;
+
+.instruction {
+    margin-top: 20px;
+}
+
+.input {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    padding: 15px;
+    resize: none;
+    font-size: 16px;
+}
+
+.keybord-area {
+    position: relative;
+    margin-top: 50px;
+    background-color: rgb(185, 185, 185);
     border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.keybord-row {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.key {
+    height: 40px;
+    width: 40px;
+    color: white;
+    background-color: black;
+    padding: 10px 15px;
     margin: 3px;
-    padding: 3px;
-    float: left;
+    border-radius: 3px;
 }
-.active{
-    background-color: rgb(130, 130, 212);
-}
+
