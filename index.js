@@ -215,3 +215,43 @@ keyboardZone.addEventListener('click', function (e) {
   inputZone.blur();
   inputZone.focus();
 });
+
+// eslint-disable-next-line func-names
+keyboardZone.addEventListener('mousedown', function (e) {
+  if (e.target.classList.contains('capsLock')) {
+    if (e.target.classList.contains('button__push')) {
+      e.target.classList.remove('button__push');
+      if (buttons[0].innerHTML === '±') {
+        addButtons(englishLowerCaseList);
+      } else { addButtons(russianLowerCase); }
+    } else {
+      e.target.classList.add('button__push');
+      if (buttons[0].innerHTML === '§') {
+        addButtons(englishUpperCase);
+      } else { addButtons(russianUpperCase); }
+    }
+  } else if (e.target.classList.contains('shiftLeft') || e.target.classList.contains('shiftRight')) {
+    e.target.classList.add('button__push');
+    if (buttons[0].innerHTML === '§') {
+      addButtons(englishUpperCase);
+    } else {
+      addButtons(russianUpperCase);
+    }
+  } else if (e.target.tagName === 'SPAN') {
+    e.target.classList.add('button__push');
+  }
+});
+// eslint-disable-next-line func-names
+keyboardZone.addEventListener('mouseup', function (e) {
+  if (e.target.classList.contains('shiftLeft') || e.target.classList.contains('shiftRight')) {
+    e.target.classList.remove('button__push');
+    if (buttons[0].innerHTML === '±') {
+      addButtons(englishLowerCaseList);
+    } else { addButtons(russianLowerCase); }
+  } else if (e.target.tagName === 'SPAN') {
+    if (e.target.classList.contains('capsLock')) {
+      return;
+    }
+    e.target.classList.remove('button__push');
+  }
+});
